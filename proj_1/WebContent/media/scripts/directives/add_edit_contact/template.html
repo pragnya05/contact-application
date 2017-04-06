@@ -1,0 +1,99 @@
+32
+
+3<div ng-init="init()" ng-if="state != 3">
+    <div ng-show="showalert.positive">
+        <div class="alert alert-success" role="alert">
+            <strong>successfully created
+                </strong> with id {{newid}}
+        </div>
+        <input type="submit" class="btn btn-primary" ng-click="newContact()" value="add more" />
+    </div>
+    <div ng-show="state == 3">
+        <div class="alert alert-info" role="alert">
+            <strong>unable to find the contact</strong> some error message ...
+        </div>
+    </div>
+
+    <form name="auForm" novalidate ng-if="auContact != undefined">
+        <div class="form-group row" ng-class="{'has-danger': (auForm.$submitted || auForm.firstname.$dirty) && auForm.firstname.$invalid, 'has-success':  (auForm.$submitted || auForm.firstname.$dirty) && auForm.firstname.$valid}">
+            <label class="col-sm-3 col-form-label">Firstname</label>
+            <div class="col-sm-9">
+                <input name="firstname" type="text" ng-minlength="2" ng-maxlength="255" class="form-control" ng-model="auContact.firstname"
+                    ng-class="{'form-control-success': (auForm.$submitted || auForm.firstname.$dirty) && auForm.firstname.$valid, 'form-control-danger': (auForm.$submitted || auForm.firstname.$dirty) && auForm.firstname.$invalid}"
+                    placeholder="Firstname" required="" />
+                <small class="form-text text-muted">first name of the contact</small>
+                <span ng-if="(auForm.$submitted || auForm.firstname.$dirty) && auForm.firstname.$invalid">
+                <div class="form-control-feedback" ng-show="auForm.firstname.$error.minlength">min length is 2</div>
+                <div class="form-control-feedback" ng-show="auForm.firstname.$error.maxlength">max length is 255</div>
+                <div class="form-control-feedback" ng-show="auForm.firstname.$error.required">first name is required</div>
+            </span>
+            </div>
+        </div>
+
+        <div class="form-group row" ng-class="{'has-danger': (auForm.$submitted || auForm.lastname.$dirty) && auForm.lastname.$invalid, 'has-success':  (auForm.$submitted || auForm.lastname.$dirty) && auForm.lastname.$valid}">
+            <label class="col-sm-3 col-form-label">Lastname</label>
+            <div class="col-sm-9">
+                <input name="lastname" type="text" ng-maxlength="255" class="form-control" ng-model="auContact.lastname" ng-class="{'form-control-success': (auForm.$submitted || auForm.lastname.$dirty) && auForm.lastname.$valid, 'form-control-danger': (auForm.$submitted || auForm.lastname.$dirty) && auForm.lastname.$invalid}"
+                    placeholder="Lastname" required="" />
+                <small class="form-text text-muted">last name of the contact</small>
+                <span ng-if="(auForm.$submitted || auForm.lastname.$dirty) && auForm.lastname.$invalid">
+                <div class="form-control-feedback" ng-show="auForm.lastname.$error.minlength">min length is 5</div>
+                <div class="form-control-feedback" ng-show="auForm.lastname.$error.maxlength">max length is 255</div>
+                <div class="form-control-feedback" ng-show="auForm.lastname.$error.required">lastname is required</div>
+            </span>
+            </div>
+        </div>
+
+        <div class="form-group row" ng-class="{'has-danger': (auForm.$submitted || auForm.email.$dirty) && auForm.email.$invalid, 'has-success':  (auForm.$submitted || auForm.email.$dirty) && auForm.email.$valid}">
+            <label class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+                <input name="email" type="email" ng-minlength="3" ng-maxlength="255" class="form-control" ng-model="auContact.email" ng-class="{'form-control-success': (auForm.$submitted || auForm.email.$dirty) && auForm.email.$valid, 'form-control-danger': (auForm.$submitted || auForm.email.$dirty) && auForm.email.$invalid}"
+                    placeholder="name@example.com" required="" />
+                <small class="form-text text-muted">Example help text that remains unchanged.</small>
+                <span ng-if="(auForm.$submitted || auForm.email.$dirty) && auForm.email.$invalid">
+                <div class="form-control-feedback" ng-show="auForm.email.$error.email">invalid email format</div>
+                <div class="form-control-feedback" ng-show="auForm.email.$error.minlength">min length is 3</div>
+                <div class="form-control-feedback" ng-show="auForm.email.$error.maxlength">max length is 255</div>
+                <div class="form-control-feedback" ng-show="auForm.email.$error.required">email is required</div>
+            </span>
+            </div>
+        </div>
+
+        <div class="form-group row" ng-class="{'has-danger': (auForm.$submitted || auForm.phone_number.$dirty) && auForm.phone_number.$invalid, 'has-success':  (auForm.$submitted || auForm.phone_number.$dirty) && auForm.phone_number.$valid}">
+            <label class="col-sm-3 col-form-label">Phone Number</label>
+            <div class="col-sm-9">
+                <input name="phone_number" type="text" class="form-control" ng-model="auContact.phone_number" ng-class="{'form-control-success': (auForm.$submitted || auForm.phone_number.$dirty) && auForm.phone_number.$valid, 'form-control-danger': (auForm.$submitted || auForm.phone_number.$dirty) && auForm.phone_number.$invalid}"
+                    ng-pattern="phoneNumberPattern" placeholder="Phone Number" />
+                <small class="form-text text-muted">phone number</small>
+                <span ng-if="(auForm.$submitted || auForm.phone_number.$dirty) && auForm.phone_number.$invalid">
+                <div class="form-control-feedback" ng-show="auForm.phone_number.$error.pattern">only numbers are allowed </div>
+            </span>
+            </div>
+        </div>
+
+        <div class="form-group row" ng-class="{'has-danger': (auForm.$submitted || auForm.status.$touched) 
+            && auForm.status.$invalid, 'has-success':  (auForm.$submitted || auForm.status.$touched) && auForm.status.$valid}">
+            <label class="col-sm-3 col-form-label">Status</label>
+            <div class="col-sm-9">
+                <select class="custom-select" name="status" ng-options="ch as ch.value for ch in status_choices track by ch.key" ng-model="auContact.status"
+                    required="">
+                <option value="">Select status</option>
+            </select>
+                <small class="form-text text-muted">select status</small>
+                <span ng-if="(auForm.$submitted || auForm.status.$touched) && auForm.status.$invalid">
+                <div class="form-control-feedback" ng-show="auForm.status.$error">Please select a status</div>
+            </span>
+            </div>
+        </div>
+
+        <input type="button" class="btn btn-primary" ng-click="resetform(auForm)" value="Reset" ng-if="state == 1" />
+        <!-- only if state if create -->
+        <input type="submit" class="btn btn-primary" ng-click="addUpdateContact(auForm)" value="Save" />
+        <input type="submit" class="btn btn-primary btn-danger" ng-click="onDeleteContact(auForm)" value="Delete" ng-if="state == 2"
+        />
+        <!-- only if update-->
+
+
+    </form>
+
+</div>

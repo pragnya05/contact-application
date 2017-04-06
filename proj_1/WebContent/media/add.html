@@ -1,0 +1,22 @@
+<div class="col-xs-12" ng-controller="AddContactController as addCtrl" ng-init="addCtrl.init()">
+    <div ng-show="addCtrl.showalert.positive">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>successfully created
+                    </strong> with id {{addCtrl.newid}}
+        </div>
+        <input type="submit" class="btn btn-primary" ng-click="addCtrl.newContact()" value="add more" />
+    </div>
+    <div ng-show="addCtrl.showalert.negative">
+        <div class="alert alert-info" role="alert">
+            <strong>unable to create contact</strong> some error message ...
+        </div>
+    </div>
+
+    <create-update-contact ng-if="addCtrl.addContactControl" 
+        on-success="addCtrl.onSuccess(contact)" 
+        on-fail="addCtrl.onFail()" action-id="" />
+</div>
+

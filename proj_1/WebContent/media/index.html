@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ContactsApp">
+
+<head>
+  <base href="/proj_1/media/" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/proj_1/media/styles/bootstrap.template.styles.css" />
+</head>
+
+<body>
+  <div class="container" ng-controller="MainController as mainCtl" class="container-fluid" ng-init="mainCtl.init()">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills float-right">
+          <li class="nav-item">
+            <a class="nav-link" ui-sref="Home" ui-sref-active="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" ui-sref="Add" ui-sref-active="active">Add</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" ui-sref="List" ui-sref-active="active">List</a>
+          </li>
+        </ul>
+      </nav>
+      <a ui-sref="Home">
+        <h3 class="text-muted">Contacts Project</h3>
+      </a>
+    </div>
+
+    <div class="row marketing" ui-view="mainContainer">
+      
+    </div>
+
+    <footer class="footer">
+      <p>&copy; Company 2017</p>
+    </footer>
+
+  </div>
+  <!-- /container -->
+
+
+
+
+
+
+
+  <script src="/proj_1/media/angular/main/angular.js"></script>
+  <script src="/proj_1/media/angular/lib/angular-ui-router.js"></script>
+
+  <script src="/proj_1/media/scripts/angular.main.js"></script>
+  <script src="/proj_1/media/scripts/services/contacts.data.service.js"></script>
+  <script src="/proj_1/media/scripts/directives/add_edit_contact/diretive.js"></script>
+  <script src="/proj_1/media/scripts/directives/contacts_list/directive.js"></script>
+  <script src="/proj_1/media/scripts/controllers/add.contact.controller.js"></script>
+  <script src="/proj_1/media/scripts/controllers/update.contact.controller.js"></script>
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
