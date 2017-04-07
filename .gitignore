@@ -1,4 +1,6 @@
 target/*
+.classpath
+.settings/*
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
