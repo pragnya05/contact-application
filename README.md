@@ -37,3 +37,34 @@ This is a production ready application has contact information which can be edit
 * on clicking delete the api /proj_1/api/deletecontact is called from the service [ContactsMainService](WebContent/media/scripts/services/contacts.data.service.js)
 * on click update the api /proj_1/api/updatecontact is called the service [ContactsMainService](WebContent/media/scripts/services/contacts.data.service.js)
 
+## screenshots
+
+1. index page
+![alt text](screenshots/1.PNG "main index page")
+
+2. add contact
+![alt text](screenshots/2.PNG "add contact page")
+
+3. add contact validation
+![alt text](screenshots/3.PNG "add contact validation")
+
+4. add contact validation
+![alt text](screenshots/4.PNG "add contact validation")
+
+5. add contact validation
+![alt text](screenshots/5.PNG "add contact validation")
+
+6. add contact success message
+![alt text](screenshots/6.PNG "add contact success message")
+
+7. contacts list
+![alt text](screenshots/7.PNG "list of contacts")
+
+8 edit contact page
+![alt text](screenshots/8.PNG "edit contact page")
+
+9 edit contact validation
+![alt text](screenshots/9.PNG "edit contact validation")
+
+10 update contact success message
+![alt text](screenshots/10.PNG "update contact success message")
