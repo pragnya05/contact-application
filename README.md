@@ -5,7 +5,7 @@ This is a production ready application has contact information which can be edit
 
 ## source file paths
     1. java api file paths
-        a. [rest api file](./src/proj_1/web/rest/ContactsRestService.java)
+        a. [rest api file](./blob/master/src/proj_1/web/rest/ContactsRestService.java)
         b. model files [contact](src/proj_1/web/model/Contact.java) [status] (src/proj_1/web/model/Status.java)
         c. [database access file] (src/proj_1/web/db/ContactsDB.java)
     2. UI file paths
