@@ -1,3 +1,6 @@
+# Project host link:
+http://54.71.18.204:8080/proj_1/media/index.html
+
 # contact-application
 This production ready application has contact information which can be edited, deleted and updated according to the user.
 
